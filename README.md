@@ -151,7 +151,7 @@ pinned: false
 | `musicConfig.ts` | 音樂播放器（Meting API 歌單 / 本地音樂、歌詞、音量） |
 | `announcementConfig.ts` | 側邊欄公告欄（標題、內容、連結） |
 | `sponsorConfig.ts` | 贊助頁面（付款方式、QR Code、贊助者清單） |
-| `adConfig.ts` | 側邊欄廣告組件（圖片廣告 / 內容廣告） |
+| `adConfig.ts` | 側邊欄廣告組件（圖片廣告 / 內容廣告 / Google AdSense） |
 | `footerConfig.ts` | 頁尾自訂 HTML 注入（備案號等） |
 | `pioConfig.ts` | 看板娘（Live2D / Spine 模型、互動訊息） |
 | `sakuraConfig.ts` | 櫻花飄落動畫特效（數量、速度、透明度） |

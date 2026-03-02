@@ -25,5 +25,11 @@ export const profileConfig: ProfileConfig = {
 			url: "/rss/",
 			showName: false,
 		},
+		{
+			name: "贊助",
+			icon: "fa7-solid:hand-holding-heart",
+			url: "https://portaly.cc/linziyou/support",
+			showName: false,
+		},
 	],
 };

@@ -600,6 +600,10 @@ export type AdConfig = {
 		left?: string; // 左边距
 		all?: string; // 统一边距，会覆盖单独设置
 	};
+	adsense?: {
+		client: string; // AdSense 发布商 ID，如 "ca-pub-xxxxxxxxxxxxxxxx"
+		slot: string; // 广告单元 ID
+	};
 	closable?: boolean; // 是否可关闭
 	displayCount?: number; // 显示次数限制，-1为无限制
 	expireDate?: string; // 过期时间 (ISO 8601 格式)

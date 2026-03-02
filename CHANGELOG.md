@@ -7,6 +7,27 @@
 
 <br>
 
+## 2026-03-02 - 新增 Google AdSense 廣告與贊助連結
+
+在左側邊欄 Tags 組件下方加入 Google AdSense 廣告單元（手動投放），並在 profile 卡片新增 Portaly 贊助連結。
+
+### 設定檔修改
+
+| 檔案 | 修改內容 |
+|------|----------|
+| `src/config/adConfig.ts` | 新增 `adConfigAdSense` 匯出（AdSense 廣告設定），原有 `adConfig1`、`adConfig2` 保留不變 |
+| `src/config/profileConfig.ts` | 社群連結新增贊助按鈕（`fa7-solid:hand-holding-heart`，連結至 Portaly） |
+| `src/config/sidebarConfig.ts` | 左側邊欄 `advertisement` 組件 `enable: false` → `true`、`configId` 改為 `"adsense"` |
+
+### 主題客製化（原始碼修改，升級時需手動合併）
+
+| 檔案 | 修改 | 原因 |
+|------|------|------|
+| `src/components/widget/Advertisement.astro` | 新增 `adConfigAdSense` import、switch case `"adsense"`、AdSense `<ins>` 渲染區塊及動態載入 adsbygoogle.js | 原始碼僅支援自訂圖片廣告，需擴充支援 AdSense |
+| `src/types/config.ts` | `AdConfig` 新增 `adsense?: { client, slot }` 欄位 | 支援 AdSense 配置 |
+
+<br>
+
 ## 2026-03-02 - 初始建站
 
 從 WordPress 遷移至 Astro 靜態部落格，基於 Firefly 主題建立。
@@ -42,6 +63,7 @@
 | `public/favicon/favicon-32x32.png` | Favicon 32x32 |
 | `public/favicon/favicon.ico` | Favicon（覆蓋原有） |
 | `public/uploads/` | 文章圖片（從 WordPress 遷移） |
+| `public/ads.txt` | Google AdSense ads.txt 授權檔案 |
 | `README.md` | 專案說明（完整重寫） |
 | `src/assets/images/avatar.jpg` | 大頭照 |
 | `src/assets/images/banner.jpeg` | 首頁橫幅圖 |

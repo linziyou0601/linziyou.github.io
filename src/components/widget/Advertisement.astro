@@ -1,5 +1,6 @@
 ---
 import { adConfig1, adConfig2 } from "@/config/adConfig";
+import { adConfigAdSense } from "@/config/adConfig"; // [自訂] Google AdSense 廣告設定
 import type { AdConfig } from "@/types/config";
 import { url } from "@/utils/url-utils";
 
@@ -17,6 +18,8 @@ const getAdConfig = (id?: string): AdConfig => {
 			return adConfig1;
 		case "ad2":
 			return adConfig2;
+		case "adsense": // [自訂] Google AdSense 廣告
+			return adConfigAdSense;
 		default:
 			return adConfig1; // 默认配置
 	}
@@ -58,6 +61,9 @@ const getPaddingStyle = () => {
 };
 
 const paddingClass = getPaddingStyle();
+
+// [自訂] 判斷是否為 AdSense 模式（有 adsense 設定時走 AdSense 渲染，否則走原始自訂廣告渲染）
+const isAdSense = !!currentAdConfig.adsense;
 ---
 
 <div
@@ -96,6 +102,7 @@ const paddingClass = getPaddingStyle();
     )
   }
 
+  {/* [原始 Firefly 廣告內容區塊 — 已改為下方條件式渲染，保留供升級時比對]
   <!-- 广告内容 -->
   <div class={paddingClass}>
     <!-- 标题 -->
@@ -193,6 +200,105 @@ const paddingClass = getPaddingStyle();
       )
     }
   </div>
+  */}
+
+  {/* [自訂] 廣告內容（支援 AdSense 與自訂廣告的條件式渲染） */}
+  {
+    isAdSense && currentAdConfig.adsense ? (
+      <div class="adsense-container">
+        <ins
+          class="adsbygoogle"
+          style="display:block"
+          data-ad-client={currentAdConfig.adsense.client}
+          data-ad-slot={currentAdConfig.adsense.slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+    ) : (
+      <div class={paddingClass}>
+        {currentAdConfig.title && (
+          <h3 class="text-lg font-bold mb-3 text-center text-neutral-900 dark:text-neutral-50 transition">
+            {currentAdConfig.title}
+          </h3>
+        )}
+        {currentAdConfig.image && (
+          <div
+            class={
+              currentAdConfig.title ||
+              currentAdConfig.content ||
+              currentAdConfig.link
+                ? "mb-3"
+                : ""
+            }
+          >
+            {currentAdConfig.image.link ? (
+              <a
+                href={currentAdConfig.image.link}
+                target={currentAdConfig.image.external ? "_blank" : "_self"}
+                rel={currentAdConfig.image.external ? "noopener noreferrer" : ""}
+                class="block group"
+              >
+                <img
+                  src={currentAdConfig.image.src.startsWith('/') ? url(currentAdConfig.image.src) : currentAdConfig.image.src}
+                  alt={currentAdConfig.image.alt || "广告图片"}
+                  class={`w-full h-auto transition-transform duration-300 group-hover:scale-105 ${
+                    paddingClass === "p-0"
+                      ? "rounded-(--radius-large)"
+                      : "rounded-lg"
+                  }`}
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <img
+                src={currentAdConfig.image.src.startsWith('/') ? url(currentAdConfig.image.src) : currentAdConfig.image.src}
+                alt={currentAdConfig.image.alt || "广告图片"}
+                class={`w-full h-auto ${
+                  paddingClass === "p-0"
+                    ? "rounded-(--radius-large)"
+                    : "rounded-lg"
+                }`}
+                loading="lazy"
+              />
+            )}
+          </div>
+        )}
+        {currentAdConfig.content && (
+          <p class="text-sm text-center mb-3 leading-relaxed text-neutral-600 dark:text-neutral-300 transition">
+            {currentAdConfig.content}
+          </p>
+        )}
+        {currentAdConfig.link && (
+          <div class="text-center">
+            <a
+              href={currentAdConfig.link.url}
+              target={currentAdConfig.link.external ? "_blank" : "_self"}
+              rel={currentAdConfig.link.external ? "noopener noreferrer" : ""}
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[oklch(0.75_0.14_var(--hue))] hover:bg-[oklch(0.7_0.16_var(--hue))] text-white rounded-lg transition-all duration-200 font-medium text-sm shadow-lg shadow-[oklch(0.75_0.14_var(--hue))]/25 hover:shadow-xl hover:shadow-[oklch(0.75_0.14_var(--hue))]/30 hover:scale-105 transform"
+            >
+              <span>{currentAdConfig.link.text}</span>
+              {currentAdConfig.link.external && (
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              )}
+            </a>
+          </div>
+        )}
+      </div>
+    )
+  }
 </div>
 
 <script>
@@ -242,6 +348,20 @@ const paddingClass = getPaddingStyle();
         });
       }
     });
+
+    // [自訂] 初始化 AdSense 廣告（動態載入 adsbygoogle.js 並推送廣告請求）
+    const adsenseContainers = document.querySelectorAll(".adsense-container");
+    if (adsenseContainers.length > 0) {
+      if (!document.querySelector('script[src*="adsbygoogle"]')) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src =
+          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7536040795321095";
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+      }
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    }
   });
 </script>
 

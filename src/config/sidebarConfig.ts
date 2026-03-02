@@ -90,13 +90,13 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			// 组件类型：广告栏组件 1
 			type: "advertisement",
 			// 是否启用该组件
-			enable: false,
+			enable: true,
 			// 组件位置
 			position: "sticky",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
-			// 配置ID：使用第一个广告配置
-			configId: "ad1",
+			// 配置ID：使用 Google AdSense 廣告設定
+			configId: "adsense",
 		},
 	],
 

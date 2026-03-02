@@ -61,3 +61,20 @@ export const adConfig2: AdConfig = {
 		// all: "1rem",
 	},
 };
+
+// Google AdSense 廣告設定（左側邊欄 Tags 下方手動投放）
+export const adConfigAdSense: AdConfig = {
+	// AdSense 發布商 ID 與廣告單元 ID
+	adsense: {
+		client: "ca-pub-7536040795321095",
+		slot: "7851689686",
+	},
+
+	// 顯示次數限制，-1 為無限制
+	displayCount: -1,
+
+	// 元件內距設定（零內距，廣告佔滿整個元件）
+	padding: {
+		all: "0",
+	},
+};
