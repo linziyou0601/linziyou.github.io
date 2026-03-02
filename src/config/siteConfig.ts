@@ -16,16 +16,11 @@ export const siteConfig: SiteConfig = {
 	site_url: "https://linziyou.info",
 
 	// 站點描述
-	description: "Lin Ziyou 的個人技術部落格，記錄程式開發、系統架構、DevOps 等學習筆記。",
+	description:
+		"Lin Ziyou 的個人技術部落格，記錄程式開發、系統架構、DevOps 等學習筆記。",
 
 	// 站點關鍵詞
-	keywords: [
-		"LinZiyou",
-		"Dev Blog",
-		"程式",
-		"技術部落格",
-		"Astro",
-	],
+	keywords: ["LinZiyou", "Dev Blog", "程式", "技術部落格", "Astro"],
 
 	// 主题色
 	themeColor: {
