@@ -2,7 +2,7 @@
 export const fontConfig = {
 	enable: true,
 	preload: true,
-	selected: ["sweigothic-cjk", "allura"],
+	selected: ["sweigothic-cjk"],
 
 	fonts: {
 		system: {

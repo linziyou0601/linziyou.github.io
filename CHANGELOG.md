@@ -7,6 +7,19 @@
 
 <br>
 
+## 2026-03-03 - 移除 Allura 字體、作品頁導覽列圖示
+
+### 設定檔修改
+
+| 檔案 | 修改內容 |
+|------|----------|
+| `src/config/fontConfig.ts` | `selected` 移除 `"allura"`，修正手機瀏覽器英文字全套用 Allura 的問題 |
+| `src/config/navBarConfig.ts` | 「作品」連結新增 `material-symbols:photo-album-rounded` 圖示 |
+
+> **附帶影響**：`src/components/layout/Navbar.astro` 的導覽列標題原有 `font-allura` class，Allura 不再載入後該 class 無作用，標題字體 fallback 至 SweiGothic / 系統字體。
+
+<br>
+
 ## 2026-03-02 - 新增 Google AdSense 廣告與贊助連結
 
 在左側邊欄 Tags 組件下方加入 Google AdSense 廣告單元（手動投放），並在 profile 卡片新增 Portaly 贊助連結。

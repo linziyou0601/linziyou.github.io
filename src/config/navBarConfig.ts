@@ -16,6 +16,7 @@ export const navBarConfig: NavBarConfig = {
 		{
 			name: "作品",
 			url: "/works/",
+			icon: "material-symbols:photo-album-rounded",
 		},
 		LinkPreset.About,
 	],
