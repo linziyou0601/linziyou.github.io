@@ -2,7 +2,7 @@
 export const fontConfig = {
 	enable: true,
 	preload: true,
-	selected: ["sweigothic-cjk"],
+	selected: ["huninn", "iansui", "allura"],
 
 	fonts: {
 		system: {
@@ -13,12 +13,21 @@ export const fontConfig = {
 				"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
 		},
 
-		"sweigothic-cjk": {
-			id: "sweigothic-cjk",
-			name: "SweiGothic CJK TC",
-			src: "https://cdn.jsdelivr.net/gh/niclin/sweiFont@main/SweiGothicCJKtc-Medium.css",
-			family: "SweiGothicCJKtc-Medium",
-			weight: 500,
+		// justfont x Google Fonts 粉圓
+		huninn: {
+			id: "huninn",
+			name: "Huninn",
+			src: "https://fonts.googleapis.com/css2?family=Huninn&display=swap",
+			family: "Huninn",
+			display: "swap" as const,
+		},
+
+		// justfont x Google Fonts 芫荽
+		iansui: {
+			id: "iansui",
+			name: "Iansui",
+			src: "https://fonts.googleapis.com/css2?family=Iansui&display=swap",
+			family: "Iansui",
 			display: "swap" as const,
 		},
 
@@ -32,9 +41,6 @@ export const fontConfig = {
 	},
 
 	fallback: [
-		"SweiGothicCJKtc-Medium",
-		"Roboto",
-		"Helvetica",
 		"PingFang TC",
 		"微軟正黑體",
 		"Microsoft JhengHei",

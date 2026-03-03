@@ -55,7 +55,7 @@ export const siteConfig: SiteConfig = {
 	navbar: {
 		logo: {
 			type: "icon",
-			value: "material-symbols:code",
+			value: "fa7-solid:terminal",
 			alt: "Logo",
 		},
 		title: "LinZiyou Dev Blog",

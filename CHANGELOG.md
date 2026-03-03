@@ -7,6 +7,23 @@
 
 <br>
 
+## 2026-03-04 - 字體改用 Google Fonts、導覽列 icon 與標題樣式調整
+
+### 設定檔修改
+
+| 檔案 | 修改內容 |
+|------|----------|
+| `src/config/fontConfig.ts` | 移除 SweiGothic CJK（jsDelivr CDN 在手機瀏覽器不穩定），改用 Google Fonts：Huninn（粉圓）+ Iansui（芫荽）；`selected` 改為 `["huninn", "iansui", "allura"]`；fallback 移除 SweiGothicCJKtc-Medium / Roboto / Helvetica |
+| `src/config/siteConfig.ts` | navbar logo icon 改為 `fa7-solid:terminal` |
+
+### 主題客製化（原始碼修改，升級時需手動合併）
+
+| 檔案 | 修改 | 原因 |
+|------|------|------|
+| `src/components/layout/Navbar.astro` | 標題 `<span>` class 改為 `sm:text-xl md:text-2xl whitespace-nowrap overflow-hidden text-ellipsis` | 響應式字級 + 防長標題溢出 |
+
+<br>
+
 ## 2026-03-03 - 移除 Allura 字體、作品頁導覽列圖示
 
 ### 設定檔修改
