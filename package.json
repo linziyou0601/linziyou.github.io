@@ -68,7 +68,7 @@
     "satori": "^0.21.0",
     "sharp": "^0.34.5",
     "stylus": "^0.64.0",
-    "svelte": "^5.53.6",
+    "svelte": "^5.53.7",
     "typescript": "^5.9.2",
     "unist-util-is": "^6.0.1",
     "unist-util-visit": "^5.1.0"
