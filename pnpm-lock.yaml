@@ -153,8 +153,8 @@ importers:
         specifier: ^2.17.2
         version: 2.17.2
       satori:
-        specifier: ^0.25.0
-        version: 0.25.0
+        specifier: ^0.26.0
+        version: 0.26.0
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
@@ -270,6 +270,9 @@ packages:
 
   '@astrojs/sitemap@3.7.1':
     resolution: {integrity: sha512-IzQqdTeskaMX+QDZCzMuJIp8A8C1vgzMBp/NmHNnadepHYNHcxQdGLQZYfkbd2EbRXUfOS+UDIKx8sKg0oWVdw==}
+
+  '@astrojs/sitemap@3.7.2':
+    resolution: {integrity: sha512-PqkzkcZTb5ICiyIR8VoKbIAP/laNRXi5tw616N1Ckk+40oNB8Can1AzVV56lrbC5GKSZFCyJYUVYqVivMisvpA==}
 
   '@astrojs/starlight@0.37.5':
     resolution: {integrity: sha512-+pC2pgy0iR9Ucl1P4CE0jyfsoNKcUSB2RIoBwm4UnyyhtlaEjoSU7MZwa5IJkzS9sBgIbLbLgYVbkC4tHN8rkQ==}
@@ -4661,8 +4664,8 @@ packages:
   sanitize-html@2.17.2:
     resolution: {integrity: sha512-EnffJUl46VE9uvZ0XeWzObHLurClLlT12gsOk1cHyP2Ol1P0BnBnsXmShlBmWVJM+dKieQI68R0tsPY5m/B+Jg==}
 
-  satori@0.25.0:
-    resolution: {integrity: sha512-utINfLxrYrmSnLvxFT4ZwgwWa8KOjrz7ans32V5wItgHVmzESl/9i33nE38uG0miycab8hUqQtDlOpqrIpB/iw==}
+  satori@0.26.0:
+    resolution: {integrity: sha512-tkMFrfIs3l2mQ2JEcyW0ADTy3zGggFRFzi6Ef8YozQSFsFKEqaSO1Y8F9wJg4//PJGQauMalHGTUEkPrFwhVPA==}
     engines: {node: '>=16'}
 
   sax@1.4.3:
@@ -5613,11 +5616,17 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 4.3.6
 
+  '@astrojs/sitemap@3.7.2':
+    dependencies:
+      sitemap: 9.0.1
+      stream-replace-string: 2.0.0
+      zod: 4.3.6
+
   '@astrojs/starlight@0.37.5(astro@5.18.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@2.80.0)(stylus@0.64.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.11
       '@astrojs/mdx': 4.3.14(astro@5.18.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@2.80.0)(stylus@0.64.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))
-      '@astrojs/sitemap': 3.7.1
+      '@astrojs/sitemap': 3.7.2
       '@pagefind/default-ui': 1.4.0
       '@types/hast': 3.0.4
       '@types/js-yaml': 4.0.9
@@ -10929,7 +10938,7 @@ snapshots:
       parse-srcset: 1.0.2
       postcss: 8.5.8
 
-  satori@0.25.0:
+  satori@0.26.0:
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
       css-background-parser: 0.1.0
